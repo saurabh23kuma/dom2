@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.minmax{
+    border:1px solid green;
+    width:30%;
+    display:flex;
+    justify-content:space-between;
+  }
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width:30%;
+    margin:auto;
+}
+.buttons > button{
+    margin-bottom: 5%;
+    margin-right: 5%;
+}
+
+
+
+</style>
+<body>
+    <div class="minmax">
+
+  <div id="min">
+100
+ </div>
+   
+  <div id="max">
+200
+ </div>
+  </div>
+    <h2 id="score" style="text-align: center;">Score #</h2>
+    <div class="buttons">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>0</button>
+    <button onclick="calculate()">Enter</button>
+    </div>
+</body>
+<script>
+let btns=document.querySelectorAll(".buttons > button")
+
+ 
+ 
+
+let bag =""
+btns.forEach((buttons,index)=>{
+
+if(index < btns.length - 1){
+        
+buttons.addEventListener("click",function(){
+
+let displayScore=document.getElementById("score")
+bag +=buttons.textContent
+
+displayScore.textContent = bag
+})
+}
+
+
+})
+function calculate(){
+    //console.log(bag)
+    let min=document.getElementryId("min")
+    let max=document.getElementryId("max")
+
+   console.log(min.textContent,max.textContent)
+
+   if(Number(bag) < Number(min.textContent)){
+     min.textContent = bag
+   }else if(Number(bag)>Number(max.textContent))
+   max.textContent=bag
+
+}
+
+
+ 
+
+
+
+</script>
+</html>
